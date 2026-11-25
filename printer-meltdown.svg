@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="t d">
+<title id="t">Blank Evens: the printer tantrum</title><desc id="d">A furious laser printer spits a curly document like a potato chip while a tiny dog escapes with a suitcase. A blank sheet saves the day.</desc>
+<rect width="900" height="440" rx="24" fill="#fff8ec"/>
+<path d="M0 354Q225 330 450 358T900 350V440H0" fill="#efdfc9"/>
+<g stroke="#382f3f" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+<path d="M180 140L205 59Q285 40 370 60L392 143" fill="#e4eff6"/>
+<path d="M214 65L366 66 377 128 201 128Z" fill="#fff" stroke-width="3"/>
+<path d="M219 81H356M219 97H343M219 113H361" stroke="#aaa7b4" stroke-width="4"/>
+<rect x="123" y="132" width="334" height="188" rx="23" fill="#92b4cc"/>
+<path d="M131 266H447V316Q447 330 432 330H145Q131 330 131 316Z" fill="#597c9a"/>
+<rect x="158" y="151" width="263" height="65" rx="8" fill="#d9e6ec"/>
+<path d="M186 197q25-36 47 0M317 197q25-36 47 0" fill="none" stroke-width="10"/>
+<path d="M248 182l19 10-19 9M282 182l19 10-19 9" fill="none" stroke-width="5"/>
+<path d="M260 226Q290 204 320 226Q290 245 260 226Z" fill="#31293b"/>
+<path d="M278 229Q291 221 305 229" fill="none" stroke="#ff7d80" stroke-width="6"/>
+<rect x="178" y="274" width="214" height="19" rx="6" fill="#2f455c"/>
+<circle cx="416" cy="178" r="8" fill="#f3cf60"/>
+</g>
+<!-- flying curly page -->
+<g stroke="#4b3742" stroke-width="4" stroke-linejoin="round">
+<path d="M344 294Q418 258 460 295T552 290Q585 290 570 322Q549 349 516 333Q482 319 470 353Q444 376 404 340Z" fill="#fffaf1"/>
+<path d="M374 313Q421 295 448 316M383 328Q429 309 454 329" fill="none" stroke="#a0a5ae" stroke-width="3"/>
+</g>
+<g transform="translate(555 70)">
+<path d="M5 35Q-12 5 19 7Q36-10 59 17Q80 0 96 21Q105 52 78 62H22Q-1 62 5 35Z" fill="#fff" stroke="#3d3542" stroke-width="4"/>
+<text x="50" y="28" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="900" fill="#2d2838">FEED ME</text>
+<text x="50" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="900" fill="#2d2838">PAPER!</text>
+</g>
+<!-- potato chip -->
+<g transform="translate(72 60) rotate(-18)">
+<path d="M0 20Q23-17 52 10Q79 46 45 54Q18 60 0 20Z" fill="#efc86e" stroke="#aa773a" stroke-width="4"/>
+<path d="M13 20Q34 7 48 28" stroke="#c7934a" stroke-width="3" fill="none"/>
+<text x="24" y="81" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#71512b">NOT A CHIP</text>
+</g>
+<!-- runaway dog -->
+<g transform="translate(683 257)" stroke="#433340" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<path d="M35 64Q-8 61 5 28L25 12 52 19 77 34 78 69Z" fill="#bc885a"/>
+<path d="M23 24Q-12 0 4-18Q20-23 33 10" fill="#805639"/>
+<path d="M64 26Q94-8 105 4Q105 24 77 36" fill="#805639"/>
+<path d="M24 63L15 87M69 63L75 87"/>
+<circle cx="58" cy="36" r="4" fill="#322935" stroke="none"/>
+<circle cx="81" cy="48" r="6" fill="#322935" stroke="none"/>
+<path d="M107 49Q136 24 142 57" fill="none"/>
+<rect x="102" y="70" width="50" height="45" rx="5" fill="#f1aa72"/>
+<path d="M113 70V63Q127 51 140 70" fill="none"/>
+<path d="M44 90L29 111M79 90L88 110"/>
+</g>
+<!-- heroic blank page -->
+<g transform="translate(605 143) rotate(10)" stroke="#3f3444" stroke-width="4" stroke-linejoin="round">
+<rect x="0" y="0" width="79" height="109" rx="6" fill="#fff"/>
+<path d="M13 83Q39 62 66 83" fill="none" stroke="#78b79c" stroke-width="5"/>
+<circle cx="22" cy="34" r="4" fill="#333" stroke="none"/><circle cx="55" cy="34" r="4" fill="#333" stroke="none"/>
+<path d="M14 8H65" stroke="#edecf0" stroke-width="3"/>
+</g>
+<text x="46" y="396" font-family="Arial,sans-serif" font-size="37" font-weight="900" fill="#342c3d">BLANK EVENS</text>
+<text x="49" y="420" font-family="Arial,sans-serif" font-size="15" fill="#645464">Solving printer problems with absolutely nothing.</text>
+<text x="861" y="411" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="#645464">DOG HAS LEFT THE CHAT</text>
+</svg>
