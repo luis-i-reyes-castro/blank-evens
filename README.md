@@ -1,8 +1,10 @@
 # blank-evens
 
-**Making printers print properly by giving them twice as much nothing to print.
+**Making printers print properly by giving them twice as much nothing to print.**
 
-Now supporting PDF, Word and PowerPoint, because printer stupidity is not limited to a single file format.**
+Now supporting **PDF**, **Word** and **PowerPoint**, because printer stupidity is not limited to a single file format.
+
+#### Motivation
 
 Do you have one of those old and stupidly large **LASER PRINTERS** that look like the monolith from 2001 Space Odissey and also **CURL YOUR PAGES** like freaking Pringles?
 
