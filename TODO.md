@@ -32,16 +32,16 @@ An HP LaserJet Pro 400 Color MFP M475dn produced extremely pale text in *simplex
 
 ## Phase 0 — stabilize the proven PDF workflow (P0)
 
-- [ ] Keep the existing `blank_evens.py` behavior working before refactoring; create a small regression fixture.
-- [ ] Fix the doubled `.pdf.pdf` suffix and choose a consistent output convention, e.g. `document_blank_evens.pdf`.
-- [ ] Make collision handling deterministic: `..._2.pdf`, `..._3.pdf`, etc.; never overwrite originals or existing outputs.
-- [ ] Fix Windows drag-and-drop for paths containing spaces, Unicode, and multiple documents.
-- [ ] Handle empty PDFs, malformed files, file permission failures, and encrypted PDFs with actionable errors.
-- [ ] Write output to a temporary sibling file and atomically finalize, cleaning up partial artifacts on failure.
-- [ ] Preserve original page contents and important page geometry: size, orientation, crop/trim/bleed/art boxes and rotation, including mixed-size PDFs.
-- [ ] Check how annotations, form fields, bookmarks and metadata behave under `pypdf` and document any limitations; avoid making false preservation guarantees.
-- [ ] Ensure blank even pages contain *no* content; add a test for exactly `2N` pages and correct odd/even ordering.
-- [ ] Add `requirements.txt` or a minimal `pyproject.toml`, a `.gitignore` covering generated PDFs, caches and virtual environments.
+- [x] Keep the existing `blank_evens.py` behavior working before refactoring; create a small regression fixture.
+- [x] Fix the doubled `.pdf.pdf` suffix and choose a consistent output convention, e.g. `document_blank_evens.pdf`.
+- [x] Make collision handling deterministic: `..._2.pdf`, `..._3.pdf`, etc.; never overwrite originals or existing outputs.
+- [x] Fix Windows drag-and-drop for paths containing spaces, Unicode, and multiple documents.
+- [x] Handle empty PDFs, malformed files, file permission failures, and encrypted PDFs with actionable errors.
+- [x] Write output to a temporary sibling file and atomically finalize, cleaning up partial artifacts on failure.
+- [x] Preserve original page contents and important page geometry: size, orientation, crop/trim/bleed/art boxes and rotation, including mixed-size PDFs.
+- [x] Check how annotations, form fields, bookmarks and metadata behave under `pypdf` and document any limitations; avoid making false preservation guarantees.
+- [x] Ensure blank even pages contain *no* content; add a test for exactly `2N` pages and correct odd/even ordering.
+- [x] Add `requirements.txt` or a minimal `pyproject.toml`, a `.gitignore` covering generated PDFs, caches and virtual environments.
 
 ### Phase 0 acceptance criteria
 
@@ -51,24 +51,25 @@ An HP LaserJet Pro 400 Color MFP M475dn produced extremely pale text in *simplex
 
 ## Phase 1 — cross-platform CLI and Linux convenience (P1)
 
-- [ ] Refactor to a small package or module structure without breaking `python blank_evens.py document.pdf`.
-- [ ] Implement a CLI with `--help`, multiple input paths, output directory option, useful exit codes, and progress/error summaries.
-- [ ] Add a POSIX shell launcher (`blank_evens.sh`) with safe quoting and Linux-friendly Python invocation.
-- [ ] Keep the Windows BAT launcher; avoid requiring admin rights or an Office installation for PDF input.
-- [ ] Document installation with a Python virtual environment (`python -m venv`) on both OSes and drag-and-drop/terminal examples.
-- [ ] Optionally support drag-and-drop onto the Linux launcher in desktop environments that allow it; CLI is the guaranteed interface.
+- [x] Refactor to a small package or module structure without breaking `python blank_evens.py document.pdf`.
+- [x] Implement a CLI with `--help`, multiple input paths, output directory option, useful exit codes, and progress/error summaries.
+- [x] Add a POSIX shell launcher (`blank_evens.sh`) with safe quoting and Linux-friendly Python invocation.
+- [x] Keep the Windows BAT launcher; avoid requiring admin rights or an Office installation for PDF input.
+- [x] Document installation with a Python virtual environment (`python -m venv`) on both OSes and drag-and-drop/terminal examples.
+- [x] Optionally support drag-and-drop onto the Linux launcher in desktop environments that allow it; CLI is the guaranteed interface.
+- [x] Add Windows and macOS installers that install Python 3.11+ when it is missing, then install `pypdf` into `.venv`. Windows uses per-user `winget` (`install_windows.bat`). macOS uses an existing Python, Homebrew, or the python.org package (`install_macos.command`). PDF use still does not need Office.
 
 ## Phase 2 — PowerPoint and Word input (P2)
 
-- [ ] Make the supported-input dispatcher explicit: `.pdf` uses `pypdf`; `.docx` and `.pptx` are rendered to PDF first, then use the **same** blank-page operation.
-- [ ] On Windows, prefer native PowerPoint/Word PDF export through Office COM **when Office is installed** (optional `pywin32`); do not require it for PDF-only users.
-- [ ] On Linux, support a detected `libreoffice --headless` for `.docx` and `.pptx`; optionally provide a Windows LibreOffice fallback.
-- [ ] Run converters in a separate temporary directory; prevent filename collisions and clean intermediates.
-- [ ] Handle unavailable converters, hung/failed conversions, and documents with unsupported features with clear messages.
-- [ ] Verify order/appearance of slides when exporting `.pptx`; for v1, export **one slide per PDF page**. Do not promise editable `.pptx` output.
-- [ ] Explain Word's dynamic pagination and possible changes in fonts, pagination, tracked changes, comments or page layout between Word and LibreOffice.
-- [ ] Document that conversions of password-protected or digitally signed documents may require separate handling and may invalidate signatures.
-- [ ] Change the README's support table only when each implementation is tested and shipped.
+- [x] Make the supported-input dispatcher explicit: `.pdf` uses `pypdf`; `.docx` and `.pptx` are rendered to PDF first, then use the **same** blank-page operation.
+- [x] On Windows, prefer native PowerPoint/Word PDF export through Office COM **when Office is installed** (optional `pywin32`); do not require it for PDF-only users. The COM adapter is implemented and was not executed here (this environment is Linux).
+- [x] On Linux, support a detected `libreoffice --headless` for `.docx` and `.pptx`; optionally provide a Windows LibreOffice fallback.
+- [x] Run converters in a separate temporary directory; prevent filename collisions and clean intermediates.
+- [x] Handle unavailable converters, hung/failed conversions, and documents with unsupported features with clear messages.
+- [x] Verify order/appearance of slides when exporting `.pptx`; for v1, export **one slide per PDF page**. Do not promise editable `.pptx` output.
+- [x] Explain Word's dynamic pagination and possible changes in fonts, pagination, tracked changes, comments or page layout between Word and LibreOffice.
+- [x] Document that conversions of password-protected or digitally signed documents may require separate handling and may invalidate signatures.
+- [x] Change the README's support table only when each implementation is tested and shipped. LibreOffice is marked tested. Windows Office COM is marked included and not yet run on Windows.
 
 ### Phase 2 acceptance criteria
 
@@ -78,23 +79,23 @@ An HP LaserJet Pro 400 Color MFP M475dn produced extremely pale text in *simplex
 
 ## Phase 3 — tests, quality and CI (P2)
 
-- [ ] Add `pytest` tests for 1/2/N-page inputs, zero-page handling, mixed sizes, rotation, naming collisions, Unicode paths, spaces in paths and corrupted PDFs.
-- [ ] Inspect generated PDFs programmatically (`pypdf`) to assert page count, parity, blank page contents and page geometry.
-- [ ] Add integration tests for Office/LibreOffice conversion behind capability checks; skip gracefully when the converter isn't available.
-- [ ] Add a Windows BAT smoke test and a Linux shell smoke test, where feasible.
-- [ ] Add GitHub Actions running PDF-core tests on Windows and Ubuntu, across supported Python versions.
-- [ ] Add formatting/linting (e.g. Ruff) and a simple, repeatable test command.
-- [ ] Never commit actual banking/utility documents, personal information, or proprietary test PDFs. Generate synthetic fixtures.
+- [x] Add `pytest` tests for 1/2/N-page inputs, zero-page handling, mixed sizes, rotation, naming collisions, Unicode paths, spaces in paths and corrupted PDFs.
+- [x] Inspect generated PDFs programmatically (`pypdf`) to assert page count, parity, blank page contents and page geometry.
+- [x] Add integration tests for Office/LibreOffice conversion behind capability checks; skip gracefully when the converter isn't available.
+- [x] Add a Windows BAT smoke test and a Linux shell smoke test, where feasible. The BAT test checks quoting (`pause` would hang an automated run). The shell test converts a PDF.
+- [x] Add GitHub Actions running PDF-core tests on Windows and Ubuntu, across supported Python versions.
+- [x] Add formatting/linting (e.g. Ruff) and a simple, repeatable test command. `ruff check` only; `ruff format` would fight the portrait Python style.
+- [x] Never commit actual banking/utility documents, personal information, or proprietary test PDFs. Generate synthetic fixtures.
 
 ## Phase 4 — README, image, release (P3)
 
-- [ ] Keep the funny origin story, but add concise **What it does**, **Supported formats**, **Installation**, **Usage**, **Printing settings**, **Limitations**, and **Contributing** sections.
-- [ ] Make the support matrix accurate: PDF = working; Word/PowerPoint = planned until implemented; Excel = out of scope.
-- [ ] Add the lightweight SVG illustration at `assets/printer-meltdown.svg` and reference it near the top of `README.md` using `![Printer tantrum](assets/printer-meltdown.svg)`.
-- [ ] Add examples for duplex + blank reverse printing. Warn that duplex orientation settings (long/short edge) depend on page layout.
-- [ ] Explain that some drivers may suppress blank pages; test with two source pages before relying on it. A tiny optional mark/dot on even pages is a **future opt-in** workaround, not a default (banks may reject the mark).
-- [ ] Clarify that blank-even PDFs can change pagination and invalidate digital signatures; use original files for official electronic submissions.
-- [ ] Publish a small tagged release only after Windows and Linux PDF tests pass.
+- [x] Keep the funny origin story, but add concise **What it does**, **Supported formats**, **Installation**, **Usage**, **Printing settings**, **Limitations**, and **Contributing** sections.
+- [x] Make the support matrix accurate: PDF = working; Word/PowerPoint = working when a renderer is installed (LibreOffice tested, Windows Office COM included but not run here); Excel = out of scope.
+- [x] Add the lightweight SVG illustration at `assets/printer-meltdown.svg` and reference it near the top of `README.md` using `![Printer tantrum](assets/printer-meltdown.svg)`.
+- [x] Add examples for duplex + blank reverse printing. Warn that duplex orientation settings (long/short edge) depend on page layout.
+- [x] Explain that some drivers may suppress blank pages; test with two source pages before relying on it. A tiny optional mark/dot on even pages is a **future opt-in** workaround, not a default (banks may reject the mark).
+- [x] Clarify that blank-even PDFs can change pagination and invalidate digital signatures; use original files for official electronic submissions.
+- [ ] Publish a small tagged release only after Windows and Linux PDF tests pass. Not tagged from this environment.
 
 ## Suggested structure (flexible)
 
@@ -108,6 +109,10 @@ blank-evens/
 ├── blank_evens.py          # backward-compatible entry point
 ├── blank_evens_in_pdf.bat  # keep existing drag-and-drop path working
 ├── blank_evens.sh
+├── blank_evens.command     # macOS drop target
+├── install_windows.bat
+├── install_windows.ps1
+├── install_macos.command
 ├── blank_evens/
 │   ├── __init__.py
 │   ├── cli.py

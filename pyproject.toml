@@ -1,0 +1,44 @@
+[build-system]
+requires = [ "setuptools>=68" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blank-evens"
+version = "0.1.0"
+description = "Insert a blank reverse side after each page so duplex printing leaves the back empty."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Luis I. Reyes-Castro" },
+]
+dependencies = [
+    "pypdf>=5",
+]
+
+[project.optional-dependencies]
+office = [
+    "pywin32>=306; sys_platform == 'win32'",
+]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+blank-evens = "blank_evens.cli:main"
+
+[tool.setuptools]
+packages = [ "blank_evens" ]
+
+[tool.pytest.ini_options]
+testpaths = [ "tests" ]
+pythonpath = [ "." ]
+
+[tool.ruff]
+line-length = 92
+extend-exclude = [ ".venv" ]
+
+[tool.ruff.lint]
+# Formatting follows the portrait Python spec. Ruff is only the bug finder.
+select = [ "E9", "F" ]
