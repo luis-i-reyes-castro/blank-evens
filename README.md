@@ -4,7 +4,7 @@
 
 Now supporting **PDF**, **Word** and **PowerPoint**, because printer stupidity is not limited to a single file format.
 
-![A hilariously bad drawing](printer-meltdown.png)
+![A hilariously bad drawing](printer-meltdown.svg)
 
 ## Anti-Pringles Technology is Finally Here!
 
